@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'shoppinglyx.urls'
+ROOT_URLCONF = 'metamart.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'shoppinglyx.wsgi.application'
+WSGI_APPLICATION = 'metamart.wsgi.application'
 
 
 # Database
