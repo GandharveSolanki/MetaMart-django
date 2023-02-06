@@ -189,19 +189,27 @@ def orders(request):
 	op = OrderPlaced.objects.filter(user=request.user)
 	return render(request, 'app/orders.html', {'order_placed':op})
 
-def mobile(request, data=None):
-	totalitem = 0
+
+
+
+
+def category(request, data=None):
+	totalitem = 0 
+	context=[]
+	topwears = Product.objects.filter(category='TW')
+	bottomwears = Product.objects.filter(category='BW')
+	mobiles = Product.objects.filter(category='M')
 	if request.user.is_authenticated:
 		totalitem = len(Cart.objects.filter(user=request.user))
 	if data==None :
-			mobiles = Product.objects.filter(category='M')
-	elif data == 'Redmi' or data == 'Samsung':
-			mobiles = Product.objects.filter(category='M').filter(brand=data)
-	elif data == 'below':
-			mobiles = Product.objects.filter(category='M').filter(discounted_price__lt=10000)
-	elif data == 'above':
-			mobiles = Product.objects.filter(category='M').filter(discounted_price__gt=10000)
-	return render(request, 'app/mobile.html', {'mobiles':mobiles, 'totalitem':totalitem})
+		context=[topwears,bottomwears,mobiles]
+	elif  data == 'M':
+			context = [mobiles]
+	elif data == 'TW':
+			context = [topwears]
+	elif data == 'BW':
+			context = [bottomwears]
+	return render(request, 'app/category.html', {'context':context})
 
 
 class CustomerRegistrationView(View):
@@ -241,3 +249,7 @@ class ProfileView(View):
 			reg.save()
 			messages.success(request, 'Congratulations!! Profile Updated Successfully.')
 		return render(request, 'app/profile.html', {'form':form, 'active':'btn-primary', 'totalitem':totalitem})
+	
+	
+	
+

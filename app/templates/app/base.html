@@ -3,8 +3,10 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -17,11 +19,7 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Mart</title>
+   
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/8a44b0fff1.js" crossorigin="anonymous"></script>
     <!-- fonts -->
@@ -37,6 +35,7 @@
     <!-- main-CSS -->
     <link rel="stylesheet" href="{% static 'app/css/homePage.css' %}">
     <link rel="stylesheet" href="{%static 'app/css/productPage.css'%}">
+   
     <title>Meta Mart | {% block title %} {% endblock title %} </title>
   </head>
   <body>
@@ -150,7 +149,7 @@
     {% block home %} {% endblock home %}
     {% block livesale %} {% endblock livesale %}
     {% block main-content %} {% endblock main-content %}
-
+    {%block categorynavb%}{%endblock categorynavb%}
     {% block payment-gateway %} {% endblock payment-gateway %}
 
     <!-- Start Footer -->
